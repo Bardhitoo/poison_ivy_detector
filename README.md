@@ -24,7 +24,7 @@
 
 ### How to use
 
-    
+    Enter the `src` file for details on how to use. Read the "Final Report.pdf" for a more detailed explanation of the methodologies. 
 
 ### Results
 
