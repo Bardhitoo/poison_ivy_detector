@@ -8,27 +8,36 @@ This project tackles the problem of poison ivy detection via a semi-supervised i
 ### Pre-processing: Initial Morphology and Noise Reduction
 
 - First, the algorithm finds the ratio of the image dimensions and explores the colorspace for high-signal channels.
-<img src="figs/rgb.jpg" width="400"> <img src="figs/hsv.jpg" width="400"> <img src="figs/lab.jpg" width="400"> 
+<img src="figs/rgb.jpg" width="200"> <img src="figs/hsv.jpg" width="200"> <img src="figs/lab.jpg" width="200"> 
 
-![colorspaces-rgb](){:height="50%" width="50%"}
-![colorspaces-hsv](figs/hsv.jpg){:height="50%" width="50%"}
-![colorspaces-lab](figs/lab.jpg){:height="50%" width="50%"}
 - A circular mask is generated to remove the area outside the circle.
-![circular image](figs/leaf.jpg)
+<img src="figs/leaf.jpg">
+
 - Image quantization is used to bucket the pixels of the image into 16 parts to further remove noise.
-![not-quantized](figs/quantized_v_unquantized.jpg)
+<img src="figs/quantized_v_unquantized.jpg">
 
 ### Processing: Strong Edges
 
 - Sobel edge detector is used to detect edges in vertical and horizontal directions.
-
 - Edges with a magnitude above the 95th percentile are identified to achieve the strongest edges.
+<img src="figs/strong_edges.jpg">
 
 ### Processing: K-Means and Noise Removal
 
 - K-means is used for segmentation, multiple color channels are inputted into K-means.
 - 5% weight for rows and columns, 200% weight for edge magnitudes, and a* from Lab are used for adjustments.
 - Clusters for K-means are set to nine.
+<img src="figs/k_means.jpg">
+
+### Processing: Watershed Segmentation
+- If K-means finds a single connected component of leaves, separate leafs with watershed segmentation
+<img src="figs/leaf_dist.jpg" width="200"> <img src="figs/mask.jpg" width="200"> <img src="figs/mask_leaf.jpg" width="200"> 
+
+### Post-processing: Cleaning and Classifying
+- Morphological operations are used to clean the image and prep for classifying algorithms to take over
+- Classifying factors are: Number of leafs, number of corners, and neural network's output on the post-processed leaf image  
+<img src="figs/corners.jpg">
+<img src="figs/output.jpg">
 
 ### How to use
 
