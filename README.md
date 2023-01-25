@@ -8,7 +8,9 @@ This project tackles the problem of poison ivy detection via a semi-supervised i
 ### Pre-processing: Initial Morphology and Noise Reduction
 
 - First, the algorithm finds the ratio of the image dimensions and explores the colorspace for high-signal channels.
-![colorspaces-rgb](figs/rgb.jpg){:height="50%" width="50%"}
+<img src="figs/rgb.jpg" width="400"> <img src="figs/hsv.jpg" width="400"> <img src="figs/lab.jpg" width="400"> 
+
+![colorspaces-rgb](){:height="50%" width="50%"}
 ![colorspaces-hsv](figs/hsv.jpg){:height="50%" width="50%"}
 ![colorspaces-lab](figs/lab.jpg){:height="50%" width="50%"}
 - A circular mask is generated to remove the area outside the circle.
