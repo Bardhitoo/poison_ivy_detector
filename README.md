@@ -11,7 +11,7 @@ This project tackles the problem of poison ivy detection via a semi-supervised i
 <img src="figs/rgb.jpg" width="250"> <img src="figs/hsv.jpg" width="250"> <img src="figs/lab.jpg" width="250"> 
 
 - A circular mask is generated to remove the area outside the circle.
-<img src="figs/leaf.jpg">
+<img src="figs/leaf.jpg" width="500">
 
 - Image quantization is used to bucket the pixels of the image into 16 parts to further remove noise.
 <img src="figs/quantized_v_unquantized.jpg"  width="500">
